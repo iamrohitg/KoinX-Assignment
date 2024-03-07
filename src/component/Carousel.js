@@ -7,7 +7,7 @@ const Carousel = ({ trendingCoins }) => {
     if (carouselRef.current.scrollLeft <= 0) {
       carouselRef.current.scrollLeft = carouselRef.current.scrollWidth;
     } else {
-      carouselRef.current.scrollLeft -= 500; // Adjust the scroll amount as needed
+      carouselRef.current.scrollLeft -= 500;
     }
   };
 
@@ -18,7 +18,7 @@ const Carousel = ({ trendingCoins }) => {
     ) {
       carouselRef.current.scrollLeft = 0;
     } else {
-      carouselRef.current.scrollLeft += 500; // Adjust the scroll amount as needed
+      carouselRef.current.scrollLeft += 500;
     }
   };
 
@@ -44,13 +44,16 @@ const Carousel = ({ trendingCoins }) => {
       <div
         ref={carouselRef}
         className="flex flex-row space-x-6 overflow-x-hidden"
-        style={{ whiteSpace: "nowrap" }}
+        style={{
+          whiteSpace: "nowrap",
+          transition: "scroll 0.5s ease-in-out",
+        }}
       >
         {trendingCoins.map((coin, index) => (
           <div
             key={index}
-            className="w-full h-[25vh] rounded-lg bg-white border border-gray-300 p-4 shadow-md"
-            style={{ minWidth: "50vh" }}
+            className="w-3/4 h-[25vh] rounded-lg bg-white border border-gray-300 p-4 shadow-md"
+            style={{ minWidth: "40vh" }}
           >
             <div className="flex flex-row space-x-1">
               <img
